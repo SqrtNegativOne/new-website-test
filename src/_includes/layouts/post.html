@@ -40,28 +40,6 @@
     <!--                    LANDING                   -->
     <!-- ============================================ -->
 
-    <section id="int-hero">
-        <picture>
-            <source
-                media="(max-width: 600px)"
-                srcset="/assets/images/cabinets2-m.jpg"
-            />
-            <source
-                media="(min-width: 601px)"
-                srcset="/assets/images/cabinets2.jpg"
-            />
-            <img
-                aria-hidden="true"
-                decoding="async"
-                src="/assets/images/cabinets2.jpg"
-                alt="kitchen cabinets"
-                loading="eager"
-                width="2500"
-                height="1667"
-            />
-        </picture>
-    </section>
-
     <!-- ============================================ -->
     <!--              Main Blog Content               -->
     <!-- ============================================ -->
@@ -75,6 +53,7 @@
 
             <article class="blog-article">
                 <!--Main Article Image-->
+                {% if image %}
                 <picture class="blog-mainImage">
                     <img
                         src="{{ image }}"
@@ -84,22 +63,13 @@
                         decoding="async"
                     />
                 </picture>
+                {% endif %}
 
                 <!--Article Info-->
                 <div class="article-group">
                     <h1 class="blog-h1">{{ title }}</h1>
                     <div class="blog-authorGroup">
-                        <!--Author Image-->
-                        <picture class="blog-author-img">
-                            <img
-                                src="/assets/svgs/profile.svg"
-                                alt="house"
-                                width="32"
-                                height="32"
-                                decoding="async"
-                            />
-                        </picture>
-                        <span class="blog-author">{{ author }}</span>
+                        <span class="blog-author">by {{ author }}.</span>
                         <span aria-hidden="true" class="blog-dot"></span>
                         <!--Blog Date-->
                         <span class="blog-date">{{ date | postDate }}</span>
@@ -110,6 +80,5 @@
         </div>
         <!-- End .main-content -->
 
-        {% include 'components/featured-post.html' %}
     </div>
 {% endblock %}

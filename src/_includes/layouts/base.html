@@ -67,9 +67,7 @@
         {% endif %}
 
         <!-- Sitewide Stylesheets and Scripts -->
-        <link rel="stylesheet" href="/assets/css/root.css" />
-        <link rel="stylesheet" href="/assets/css/dark.css" />
-        <script defer src="/assets/js/dark.js"></script>
+        <link rel="stylesheet" href="/assets/css/blog.css" />
         <script defer src="/assets/js/nav.js"></script>
 
         {% block head %}{% endblock %}
@@ -83,11 +81,56 @@
             aria-label="skip to main content"
             href="#main"
             tabindex="1"
+            hidden
             >Click To Skip To Main Content</a
         >
 
-        {% include "components/header.html" %}
+        <!-- ============================================ -->
+        <!--                 Navigation                   -->
+        <!-- ============================================ -->
+
+        <header id="cs-navigation">
+        </header>
+
         <main id="main">{% block body %}{% endblock %}</main>
-        {% include "components/footer.html" %}
+
+        <!-- ============================================ -->
+        <!--                   Footer                     -->
+        <!-- ============================================ -->
+
+        <footer id="footer">
+            <div class="lists">
+                <ul>
+                    <li>
+                        <h6>Information</h6>
+                    </li>
+                    <li>
+                        <a href="/">frontpage</a>
+                    </li>
+                    <li>
+                        <a href="/blog/about">about</a>
+                    </li>
+                    <li>
+                        <a href="/blog/intractable">intractable</a>
+                    </li>
+                    <li>
+                        <a href="/blog/now">now</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <h6>Contact</h6>
+                    </li>
+                    <li>
+                        <a href="mailto:{{ client.email }}">My mail</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="credit">
+                <span>©️ {% raw %}{% year %}{% endraw %} Sqrt-1</span>
+            </div>
+        </footer>
+
     </body>
 </html>
